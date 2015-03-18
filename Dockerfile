@@ -6,4 +6,8 @@ RUN sh -c 'echo "deb http://www.icub.org/ubuntu trusty contrib/science" > /etc/a
 RUN apt-get update
 RUN apt-get install -y --force-yes yarp
 
+# open port to interact with it
+EXPOSE 10000/tcp 
+
+# check the installation
 RUN yarp check
