@@ -42,8 +42,21 @@ you shoudl get:
     yarp: Removing output from /tmp/port/2 to /tmp/port/1
     yarp: *** YARP seems okay, but there is no name server available.
 
-to start the server:
+to start and use the YARP server, I suggest to define first a secondary non-routable IP to your network device on the host machine, before launching the docker image:
+
+	sudo ifconfig eth0:1 192.168.0.1/24
+	
+then restart the docker image specifying the port mapping between the external IP and internal service on port 10000, (you can change the first 10000 port with the one most appropriate with your setting):
+
+	docker run -it -p 192.168.0.1:10000:10000 giodegas/yarp bash
+	
+then from the docker image:
 
     yarpserver
     
-then open a browser session to http://localhost:10000
+which should give you something like this:
+![YARP Server startup log](img/yarpserver_startup.png)
+
+you can now open a browser session to [http://localhost:10000](http://localhost:10000) :
+![YARP Server monitor GUI in the browser](img/yarp_screen.png)
+
