@@ -1,4 +1,4 @@
-FROM tutum/ubuntu:14.04
+FROM tutum/ubuntu:trusty
 
 MAINTAINER Giovanni De Gasperis <giovanni@giodegas.it>
 
